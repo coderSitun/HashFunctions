@@ -9,7 +9,7 @@ private:
     };
 public:
     typedef HashFunctionTypes HashFunctionTypes;
-    static HashFunction GetHashFunctionType(String type);
+    static HashFunctionTypes GetHashFunctionType(String type);
     static Hash* GetHashFunction(HashFunctionTypes hashFunctionType);
     bool checkHashFunctionTypeValidity(HashFunctionTypes hashFunctionType);
 };
