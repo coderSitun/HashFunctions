@@ -10,6 +10,7 @@ private:
         SHA160,
         MAX_HASH_FUNCTION_TYPES
     };
+protected:
     typedef unsigned int uint32;
     static const std::vector<char> hexSymbols;
     static const uint32 charBitLength;
