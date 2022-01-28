@@ -9,4 +9,5 @@ public:
     bool checkValidity();
     std::string getHash(std::string message);
 };
+
 #endif
