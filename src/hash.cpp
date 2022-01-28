@@ -1,5 +1,17 @@
 #include"hash.h"
 
+const std::vector<char> Hash::hexSymbols = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
+std::string Hash::getHexString(std::vector<uint32> data){
+    std::string hex = "";
+    std::vector<uint32>::iterator it;
+    for(it = data.begin(); it != data.end(); ++it){
+        hex += hexSymbols[*it >> 4];
+        hex += hexSymbols[*it & 0x0f];
+    }
+    return hex;
+}
+
 Hash::HashFunctionTypes Hash::GetHashFunctionType(std::string type){
     if(type.compare("sha160"))
         return SHA160;
