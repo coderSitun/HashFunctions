@@ -10,10 +10,10 @@ Sha160::Sha160(){
 
 void Sha160::fillCharInWord(const uint32 wordIndex, const char theChar){
     words[wordIndex] <<= charBitLength;
-    words[wordIndex] |= theChar
+    words[wordIndex] |= theChar;
 }
 
-void Sha160::fillWords(std::string message, const uin32 offset){
+void Sha160::fillWords(std::string message, const uint32 offset){
     uint32 wordIndex = -1;
     uint32 curIndex  = 0;
     uint32 curLength = message.length() - offset;
@@ -22,7 +22,7 @@ void Sha160::fillWords(std::string message, const uin32 offset){
 
     while(wordIndex < wordsForMessage){
         words[wordIndex] = 0;
-        for(index = 0; index < charsPerWord; ++index, ++curIndex){
+        for(uint32 index = 0; index < charsPerWord; ++index, ++curIndex){
             fillCharInWord(wordIndex, message[offset + curIndex]);
         }
         ++wordIndex;

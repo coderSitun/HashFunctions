@@ -10,7 +10,7 @@ private:
     static const uint32 totalWords;
     uint32 *words;
     void fillCharInWord(const uint32 wordIndex, const char theChar);
-    void fillWords(std::string message, const uin32 offset);
+    void fillWords(std::string message, const uint32 offset);
 public:
     Sha160();
     bool checkValidity();
