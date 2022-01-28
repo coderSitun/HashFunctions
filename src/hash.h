@@ -12,7 +12,7 @@ private:
 public:
     typedef HashFunctionTypes HashFunctionEnumTypes;
     static HashFunctionTypes GetHashFunctionType(std::string type);
-    static Hash* GetHashFunction(HashFunctionTypes hashFunctionType);
+    static Hash* GetHashFunction(HashFunctionTypes eType);
     virtual bool checkValidity();
     virtual std::string getHash(std::string message);
 };
