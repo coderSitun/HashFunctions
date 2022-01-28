@@ -17,6 +17,7 @@ protected:
     static const uint32 wordBitLength;
     static const uint32 charsPerWord;
     static const uint32 charsPerWordMinusOne;
+    static const uint32 charsPerWordBitLength;
     std::string getHexString(std::vector<uint32> data);
 public:
     typedef HashFunctionTypes HashFunctionEnumTypes;
