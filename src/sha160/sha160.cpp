@@ -14,7 +14,7 @@ void Sha160::fillCharInWord(const uint32 wordIndex, const char theChar){
 }
 
 void Sha160::fillWords(std::string message, const uint32 offset){
-    uint32 wordIndex = -1;
+    uint32 wordIndex = 0;
     uint32 curIndex  = 0;
     uint32 curLength = message.length() - offset;
     curLength = (curLength < setSize)?curLength:setSize;
