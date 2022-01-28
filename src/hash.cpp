@@ -1,9 +1,10 @@
 #include"hash.h"
 
 const std::vector<char> Hash::hexSymbols = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-const Hash::uint32 Hash::charBitLength = 8;
-const Hash::uint32 Hash::wordBitLength = 32;
-const Hash::uint32 Hash::charPerWord   = 4;
+const Hash::uint32 Hash::charBitLength        = 8;
+const Hash::uint32 Hash::wordBitLength        = 32;
+const Hash::uint32 Hash::charsPerWord         = 4;
+const Hash::uint32 Hash::charsPerWordMinusOne = charsPerWord - 1;
 
 std::string Hash::getHexString(std::vector<uint32> data){
     std::string hex = "";
