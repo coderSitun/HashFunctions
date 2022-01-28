@@ -13,7 +13,8 @@ public:
     typedef HashFunctionTypes HashFunctionEnumTypes;
     static HashFunctionTypes GetHashFunctionType(std::string type);
     static Hash* GetHashFunction(HashFunctionTypes hashFunctionType);
-    bool checkHashFunctionTypeValidity(HashFunctionTypes hashFunctionType);
+    virtual bool checkValidity();
+    virtual std::string getHash(std::string message);
 };
 
 #endif
