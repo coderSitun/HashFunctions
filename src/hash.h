@@ -12,6 +12,9 @@ private:
     };
     typedef unsigned int uint32;
     static const std::vector<char> hexSymbols;
+    static const uint32 charBitLength;
+    static const uint32 wordBitLength;
+    static const uint32 charPerWord;
     std::string getHexString(std::vector<uint32> data);
 public:
     typedef HashFunctionTypes HashFunctionEnumTypes;
