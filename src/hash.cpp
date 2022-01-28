@@ -17,6 +17,21 @@ std::string Hash::getHexString(std::vector<uint32> data){
     return hex;
 }
 
+Hash::uint32 Hash::leftRotate(uint32 word, uint32 rotate){
+    rotate &= 0x1f;
+    if(word & 0x80000000)
+        return ((word << rotate) & (word >> (0x1f - rotate)));
+    else
+        return ((word << rotate) | (word >> (0x1f - rotate)));
+}
+Hash::uint32 Hash::rightRotate(uint32 word, uint32 rotate){
+    rotate &= 0x1f;
+    if(word & 0x80000000)
+        return ((word >> rotate) & (word << (0x1f -rotate)));
+    else
+        return ((word >> rotate) | (word << (0x1f - rotate));
+}
+
 Hash::HashFunctionTypes Hash::GetHashFunctionType(std::string type){
     if(type.compare("sha160"))
         return SHA160;
