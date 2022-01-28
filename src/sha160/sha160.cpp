@@ -45,6 +45,11 @@ void Sha160::fillWords(std::string message, const uint32 offset){
 
     while(wordIndex < wordsPerSet)
         words[wordIndex++] = 0x00000000;
+
+    while(wordIndex < totalWords){
+        words[wordIndex] = words[wordIndex - 3] ^ words[wordIndex - 8] ^ words[wordIndex - 14] ^ words[wordIndex - 16];
+        ++wordIndex;
+    }
 }
 
 bool Sha160::checkValidity(){
