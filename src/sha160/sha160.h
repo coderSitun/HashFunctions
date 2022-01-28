@@ -8,6 +8,8 @@ private:
     static const uint32 setSize;
     static const uint32 wordsPerSet;
     static const uint32 totalWords;
+    static const uint32 rounds;
+    static const uint32 iterationsPerRound;
     uint32 *words;
     void fillCharInWord(const uint32 wordIndex, const char theChar);
     void fillWords(std::string message, const uint32 offset);
