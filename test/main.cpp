@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string>
 #include"hash.h"
 
 using namespace std;
@@ -9,6 +10,6 @@ int main(int argc, char* argv[]){
         cout << "options: sha160" << endl;
         return 0;
     }
-    Hash::HashFunctionTypes type = Hash::GetHashFunctionType(string(argv[1]));
+    Hash::HashFunctionEnumTypes type = Hash::GetHashFunctionType(string(argv[1]));
     return 0;
 }

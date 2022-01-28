@@ -1,6 +1,8 @@
 #ifndef __HASH
 #define __HASH
 
+#include<string>
+
 class Hash{
 private:
     enum HashFunctionTypes{
@@ -8,8 +10,8 @@ private:
         MAX_HASH_FUNCTION_TYPES
     };
 public:
-    typedef HashFunctionTypes HashFunctionTypes;
-    static HashFunctionTypes GetHashFunctionType(String type);
+    typedef HashFunctionTypes HashFunctionEnumTypes;
+    static HashFunctionTypes GetHashFunctionType(std::string type);
     static Hash* GetHashFunction(HashFunctionTypes hashFunctionType);
     bool checkHashFunctionTypeValidity(HashFunctionTypes hashFunctionType);
 };
