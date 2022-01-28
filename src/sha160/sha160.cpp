@@ -51,3 +51,8 @@ bool Sha160::checkValidity(){
     return true;
 }
 
+std::string Sha160::getHash(std::string message){
+    for(uint32 index = 0; index < message.length(); index += setSize){
+        fillWords(message, index);
+    }
+}
