@@ -59,6 +59,24 @@ void Sha160::fillWords(std::string message, const uint32 offset){
     }
 }
 
+Hash::uint32 Sha160::functionOperator(Rounds round, uint32 a, uint32 b, uint32 c){
+    uint32 ans;
+    switch(round)
+    {
+        case FIRST_ROUND:
+            ans = (a & b) | (!a & c);
+            break;
+        case SECOND_ROUND:
+        case FOURTH_ROUND:
+            ans = a ^ b ^ c;
+            break;
+        case THIRD_ROUND:
+            ans = (a & b) | (b & c) | (c & a);
+            break;
+    }
+    return ans;
+}
+
 bool Sha160::checkValidity(){
     return true;
 }
