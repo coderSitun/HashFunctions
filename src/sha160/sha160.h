@@ -17,6 +17,7 @@ public:
     Sha160();
     bool checkValidity();
     std::string getHash(std::string message);
+    ~Sha160();
 };
 
 #endif

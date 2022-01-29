@@ -65,3 +65,7 @@ std::string Sha160::getHash(std::string message){
     }
     return getHexString(data);
 }
+
+Sha160::~Sha160(){
+    delete[] words;
+}
