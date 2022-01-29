@@ -18,6 +18,7 @@ protected:
     static const uint32 charsPerWord;
     static const uint32 charsPerWordMinusOne;
     static const uint32 charsPerWordBitLength;
+    uint32 *hash;
     std::string getHexString(std::vector<uint32> data);
     uint32 leftRotate(uint32 word, uint32 rotate);
     uint32 rightRotate(uint32 word, uint32 rotate);
