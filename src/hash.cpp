@@ -7,6 +7,10 @@ const Hash::uint32 Hash::charsPerWord          = 4;
 const Hash::uint32 Hash::charsPerWordMinusOne  = charsPerWord - 1;
 const Hash::uint32 Hash::charsPerWordBitLength = 2;
 
+Hash::Hash(){
+    hash = nullptr;
+}
+
 std::string Hash::getHexString(std::vector<uint32> data){
     std::string hex = "";
     std::vector<uint32>::iterator it;

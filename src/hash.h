@@ -23,6 +23,7 @@ protected:
     uint32 leftRotate(uint32 word, uint32 rotate);
     uint32 rightRotate(uint32 word, uint32 rotate);
 public:
+    Hash();
     typedef HashFunctionTypes HashFunctionEnumTypes;
     static HashFunctionTypes GetHashFunctionType(std::string type);
     static Hash* GetHashFunction(HashFunctionTypes eType);
