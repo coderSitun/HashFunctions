@@ -113,7 +113,7 @@ std::string Sha160::getHash(std::string message){
         for(uint32 wordIndex = 0; wordIndex < wordsPerHash; ++wordIndex)
             hash[wordIndex] += data[wordIndex];
     }
-    return getHexString(data);
+    return getHexString(std::vector<uint32>(hash, hash + wordsPerHash));
 }
 
 Sha160::~Sha160(){
