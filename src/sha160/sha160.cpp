@@ -59,6 +59,14 @@ void Sha160::fillWords(std::string message, const uint32 offset){
     }
 }
 
+void Sha160::initializeHashes(){
+    hash[0] = 0x67452301;
+    hash[1] = 0xefcdab89;
+    hash[2] = 0x98badcfe;
+    hash[3] = 0x10325476;
+    hash[4] = 0xc3d2e1f0;
+}
+
 Hash::uint32 Sha160::functionOperator(Rounds round, uint32 a, uint32 b, uint32 c){
     uint32 ans;
     switch(round)

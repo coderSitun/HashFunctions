@@ -21,6 +21,7 @@ private:
     uint32 keys[TOTAL_ROUNDS];
     void fillCharInWord(const uint32 wordIndex, const char theChar);
     void fillWords(std::string message, const uint32 offset);
+    void initializeHashes();
     uint32 functionOperator(Rounds round, uint32 a, uint32 b, uint32 c);
 public:
     Sha160();
