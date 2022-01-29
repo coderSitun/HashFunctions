@@ -7,8 +7,12 @@ const Hash::uint32 Sha160::totalWords         = 80;
 const Hash::uint32 Sha160::iterationsPerRound = 20;
 
 Sha160::Sha160(){
-    words = new uint32[totalWords];
     hash  = new uint32[wordsPerHash];
+    words = new uint32[totalWords];
+    keys[FIRST_ROUND]  = 0x5a827999;
+    keys[SECOND_ROUND] = 0x6ed9eba1;
+    keys[THIRD_ROUND]  = 0x8f1bbcdc;
+    keys[FOURTH_ROUND] = 0xca62c1d6;
 }
 
 void Sha160::fillCharInWord(const uint32 wordIndex, const char theChar){

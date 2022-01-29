@@ -18,6 +18,7 @@ private:
     static const uint32 totalWords;
     static const uint32 iterationsPerRound;
     uint32 *words;
+    uint32 keys[TOTAL_ROUNDS];
     void fillCharInWord(const uint32 wordIndex, const char theChar);
     void fillWords(std::string message, const uint32 offset);
 public:
