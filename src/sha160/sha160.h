@@ -3,7 +3,7 @@
 
 #include"hash.h"
 
-class Sha160:public Hash{
+class Sha160 : public Hash{
 private:
     static const uint32 setSize;
     static const uint32 wordsPerSet;
