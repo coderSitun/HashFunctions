@@ -4,7 +4,6 @@ const Hash::uint32 Sha160::wordsPerHash       = 5;
 const Hash::uint32 Sha160::setSize            = 512;
 const Hash::uint32 Sha160::wordsPerSet        = 16;
 const Hash::uint32 Sha160::totalWords         = 80;
-const Hash::uint32 Sha160::rounds             = 4;
 const Hash::uint32 Sha160::iterationsPerRound = 20;
 
 Sha160::Sha160(){

@@ -5,11 +5,17 @@
 
 class Sha160 : public Hash{
 private:
+    enum Rounds{
+        FIRST_ROUND,
+        SECOND_ROUND,
+        THIRD_ROUND,
+        FOURTH_ROUND,
+        TOTAL_ROUNDS
+    };
     static const uint32 wordsPerHash;
     static const uint32 setSize;
     static const uint32 wordsPerSet;
     static const uint32 totalWords;
-    static const uint32 rounds;
     static const uint32 iterationsPerRound;
     uint32 *words;
     void fillCharInWord(const uint32 wordIndex, const char theChar);
