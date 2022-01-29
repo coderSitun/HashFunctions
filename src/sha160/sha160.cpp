@@ -92,14 +92,26 @@ bool Sha160::checkValidity(){
 std::string Sha160::getHash(std::string message){
     std::vector<uint32> data;
     initializeHashes();
+    uint32 temp;
     for(uint32 index = 0; index < message.length(); index += setSize){
         fillWords(message, index);
         data.insert(data.end(), hash, hash + wordsPerHash);
         for(uint32 roundIndex = 0; roundIndex < TOTAL_ROUNDS; ++roundIndex){
             for(uint32 iteratorIndex = 0; iteratorIndex < iterationsPerRound; ++iteratorIndex){
-
+                temp    =     leftRotate(data[0], 5)
+                            + functionOperator(static_cast<Rounds>(roundIndex), data[1], data[2], data[3]) 
+                            + data[4] 
+                            + words[roundIndex*iterationsPerRound + iteratorIndex] 
+                            + keys[roundIndex];
+                data[4] = data[3];
+                data[3] = data[2];
+                data[2] = leftRotate(data[1], 30);
+                data[1] = data[0];
+                data[0] = temp;
             }
         }
+        for(uint32 wordIndex = 0; wordIndex < wordsPerHash; ++wordIndex)
+            hash[wordIndex] += data[wordIndex];
     }
     return getHexString(data);
 }
