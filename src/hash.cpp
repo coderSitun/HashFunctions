@@ -38,7 +38,7 @@ Hash::uint32 Hash::rightRotate(uint32 word, uint32 rotate){
 }
 
 Hash::HashFunctionTypes Hash::GetHashFunctionType(std::string type){
-    if(type.compare("sha160"))
+    if(type.compare("sha160") == 0)
         return SHA160;
     return MAX_HASH_FUNCTION_TYPES;
 }
