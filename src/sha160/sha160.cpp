@@ -9,6 +9,7 @@ const Hash::uint32 Sha160::iterationsPerRound = 20;
 
 Sha160::Sha160(){
     words = new uint32[totalWords];
+    hash  = new uint32[wordsPerHash];
 }
 
 void Sha160::fillCharInWord(const uint32 wordIndex, const char theChar){
@@ -69,4 +70,5 @@ std::string Sha160::getHash(std::string message){
 
 Sha160::~Sha160(){
     delete[] words;
+    delete[] hash;
 }
