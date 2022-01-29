@@ -5,6 +5,7 @@
 
 class Sha160 : public Hash{
 private:
+    static const uint32 wordsPerHash;
     static const uint32 setSize;
     static const uint32 wordsPerSet;
     static const uint32 totalWords;

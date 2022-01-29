@@ -1,5 +1,6 @@
 #include"sha160.h"
 
+const Hash::uint32 Sha160::wordsPerHash       = 5;
 const Hash::uint32 Sha160::setSize            = 512;
 const Hash::uint32 Sha160::wordsPerSet        = 16;
 const Hash::uint32 Sha160::totalWords         = 80;
