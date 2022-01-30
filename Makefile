@@ -7,5 +7,8 @@ sha160:
 main:
 	g++ -c test/main.cpp -I src/ -o build/main.o
 
+run:
+	g++ build/*.o -o build/run
+
 clean:
 	rm build/*
