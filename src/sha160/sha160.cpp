@@ -20,7 +20,7 @@ void Sha160::fillCharInWord(const uint32 wordIndex, const char theChar){
     words[wordIndex] |= theChar;
 }
 
-void Sha160::fillWords(std::string message, const uint32 offset){
+void Sha160::fillWords(std::string message, const uint32 offset, const bool isLastChunk){
     uint32 wordIndex = 0;
     uint32 curIndex  = 0;
     uint32 curLength = message.length() - offset;
@@ -53,6 +53,11 @@ void Sha160::fillWords(std::string message, const uint32 offset){
 
     while(wordIndex < wordsPerSet)
         words[wordIndex++] = 0x00000000;
+
+    if(isLastChunk){
+        words[wordsPerSet - 2] = (message.length() >> 32) & 0xffffffff;
+        words[wordsPerSet - 1] =  message.length()        & 0xffffffff;
+    }
 
     while(wordIndex < totalWords){
         words[wordIndex] = leftRotate(words[wordIndex - 3] ^ words[wordIndex - 8] ^ words[wordIndex - 14] ^ words[wordIndex - 16], 1);
@@ -98,7 +103,7 @@ std::string Sha160::getHash(std::string message){
     uint32 totalChunks = totalLength/setSize;
     totalChunks += (totalLength % setSize)?1:0;
     for(uint32 chunkIndex = 0; chunkIndex < totalChunks; ++chunkIndex){
-        fillWords(message, chunkIndex * setSize);
+        fillWords(message, chunkIndex * setSize, chunkIndex == (totalChunks - 1));
         data.insert(data.end(), hash, hash + wordsPerHash);
         for(uint32 roundIndex = 0; roundIndex < TOTAL_ROUNDS; ++roundIndex){
             for(uint32 iteratorIndex = 0; iteratorIndex < iterationsPerRound; ++iteratorIndex){
