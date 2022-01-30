@@ -1,5 +1,6 @@
 #include"hash.h"
 #include"sha160.h"
+#include<stack>
 
 const std::vector<char> Hash::hexSymbols = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 const Hash::uint32 Hash::hexSymbolsPerWord     = 8;
@@ -16,9 +17,16 @@ Hash::Hash(){
 std::string Hash::getHexString(std::vector<uint32> data){
     std::string hex = "";
     std::vector<uint32>::iterator it;
+    std::stack<uint8_t> theStack;
     for(it = data.begin(); it != data.end(); ++it){
-        hex += hexSymbols[*it >> 4];
-        hex += hexSymbols[*it & 0x0f];
+        for(uint8_t index = 0; index < hexSymbolsPerWord; ++index){
+            theStack.push(*it & 0xf);
+            *it >>= 4;
+        }
+        while(!theStack.empty()){
+            hex += hexSymbols[theStack.top()];
+            theStack.pop();
+        }
     }
     return hex;
 }
