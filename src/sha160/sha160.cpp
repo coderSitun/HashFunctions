@@ -38,6 +38,7 @@ void Sha160::fillWords(std::string message, const uint32 offset){
     words[wordIndex] = 0;
     while(curIndex < curLength){
         fillCharInWord(wordIndex, message[offset + curIndex]);
+        ++curIndex;
     }
     curIndex = curLength & charsPerWordMinusOne;
     if(curIndex < charsPerWord){
