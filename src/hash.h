@@ -13,6 +13,7 @@ private:
 protected:
     typedef unsigned int uint32;
     static const std::vector<char> hexSymbols;
+    static const uint32 hexSymbolsPerWord;
     static const uint32 charBitLength;
     static const uint32 wordBitLength;
     static const uint32 charsPerWord;
