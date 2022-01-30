@@ -94,8 +94,11 @@ std::string Sha160::getHash(std::string message){
     std::vector<uint32> data;
     initializeHashes();
     uint32 temp;
-    for(uint32 index = 0; index < message.length(); index += setSize){
-        fillWords(message, index);
+    uint32 totalLength = message.length() * charBitLength + 32 + 64;
+    uint32 totalChunks = totalLength/setSize;
+    totalChunks += (totalLength % setSize)?1:0;
+    for(uint32 chunkIndex = 0; chunkIndex < totalChunks; ++chunkIndex){
+        fillWords(message, chunkIndex * setSize);
         data.insert(data.end(), hash, hash + wordsPerHash);
         for(uint32 roundIndex = 0; roundIndex < TOTAL_ROUNDS; ++roundIndex){
             for(uint32 iteratorIndex = 0; iteratorIndex < iterationsPerRound; ++iteratorIndex){
