@@ -1,3 +1,6 @@
+build:
+	mkdir build
+
 hash:
 	g++ -c src/hash.cpp -I src/ -I src/sha160/ -o build/hash.o
 
@@ -7,7 +10,7 @@ sha160:
 main:
 	g++ -c test/main.cpp -I src/ -o build/main.o
 
-run:
+run: build hash sha160 main
 	g++ build/*.o -o build/run
 
 clean:
