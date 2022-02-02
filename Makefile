@@ -14,4 +14,4 @@ run: build hash sha160 main
 	g++ build/*.o -o build/run
 
 clean:
-	rm build/*
+	rm -rf build
