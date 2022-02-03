@@ -11,7 +11,10 @@ main: build
 	g++ -c test/main.cpp -I src/ -o build/main.o
 
 run: build hash sha160 main
-	g++ build/*.o -o build/run
+	g++ -o build/run -g build/*.o
+
+direct:
+	g++ -g -o build/run src/hash.cpp src/sha160/sha160.cpp test/main.cpp -I src/ -I src/sha160/
 
 clean:
 	rm -rf build
